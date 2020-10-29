@@ -4,7 +4,7 @@ This test project belongs to a set of projects listed bellow:
 * [simulations-test](https://github.com/eliasnogueira/simulations-test)
 * [test-commons](https://github.com/eliasnogueira/test-commons)
 
-## What this project does?
+## What does this project do?
 This is the client project for the [credit-simulator-api](https://github.com/eliasnogueira/credit-simulator-api), 
 and the [simulations-test](https://github.com/eliasnogueira/simulations-test)
 You need to run locally the API service to be able to run the tests.
