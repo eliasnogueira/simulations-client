@@ -29,7 +29,6 @@ import static io.restassured.RestAssured.when;
 import config.ConfigurationManager;
 import exception.ConflictException;
 import exception.NotFoundException;
-import exception.SimulationException;
 import exception.UnprocessableEntityException;
 import io.restassured.http.ContentType;
 import io.restassured.http.Headers;
@@ -38,12 +37,14 @@ import org.apache.http.HttpStatus;
 
 public class SimulationsClient extends RestClient {
 
-    public static final String BASE_URI = ConfigurationManager.getConfiguration().baseUri();
-    public static final String BASE_PATH = ConfigurationManager.getConfiguration().basePath();
-    public static final String PORT = String.valueOf(ConfigurationManager.getConfiguration().port());
+    private static final String BASE_URI = ConfigurationManager.getConfiguration().baseUri();
+    private static final String BASE_PATH = ConfigurationManager.getConfiguration().basePath();
+    private static final String PORT = String.valueOf(ConfigurationManager.getConfiguration().port());
 
-    public static final String VERSION = "/v1";
-    public static final String SIMULATIONS = "/simulations/";
+    private static final String VERSION = "/v1";
+    private static final String SIMULATIONS = "/simulations/";
+
+    private static final String CPF = "{cpf}";
 
     public SimulationsClient() {
         super(BASE_URI, PORT, BASE_PATH, VERSION);
@@ -77,7 +78,7 @@ public class SimulationsClient extends RestClient {
             given().
                 pathParam("cpf", cpf).
             when().
-                get(getPath(SIMULATIONS + "{cpf}")).
+                get(getPath(SIMULATIONS + CPF)).
             then().
                 statusCode(HttpStatus.SC_OK).
                 extract().
@@ -116,7 +117,7 @@ public class SimulationsClient extends RestClient {
                 pathParam("cpf", cpf).
                 body(simulation).
             when().
-                put(getPath(SIMULATIONS + "{cpf}")).
+                put(getPath(SIMULATIONS + CPF)).
             then().
                 statusCode(HttpStatus.SC_OK).
                 extract().
@@ -143,7 +144,7 @@ public class SimulationsClient extends RestClient {
                 pathParam("cpf", cpf).
                 body(simulation).
             when().
-                put(getPath(SIMULATIONS + "{cpf}")).
+                put(getPath(SIMULATIONS + CPF)).
             then().
                 statusCode(HttpStatus.SC_NOT_FOUND).
                 extract().
@@ -167,7 +168,7 @@ public class SimulationsClient extends RestClient {
         given().
             pathParam("cpf", cpf).
         when().
-            delete(getPath(SIMULATIONS + "{cpf}")).
+            delete(getPath(SIMULATIONS + CPF)).
         then().
             statusCode(HttpStatus.SC_NO_CONTENT);
     }
@@ -177,7 +178,7 @@ public class SimulationsClient extends RestClient {
             given().
                 pathParam("cpf", cpf).
             when().
-                delete(getPath(SIMULATIONS + "{cpf}")).
+                delete(getPath(SIMULATIONS + CPF)).
             then().
                 statusCode(HttpStatus.SC_NOT_FOUND).
                 extract().
