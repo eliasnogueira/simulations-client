@@ -6,7 +6,7 @@
 
     <groupId>com.eliasnogueira</groupId>
     <artifactId>simulations-client</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
 
     <properties>
         <java.version>11</java.version>
@@ -14,7 +14,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
 
-        <test-commons.version>1.0.0-SNAPSHOT</test-commons.version>
+        <test-commons.version>1.0.2</test-commons.version>
     </properties>
 
     <dependencies>
@@ -22,7 +22,7 @@
         <dependency>
             <groupId>com.eliasnogueira</groupId>
             <artifactId>test-commons</artifactId>
-            <version>1.0.0</version>
+            <version>${test-commons.version}</version>
         </dependency>
 
     </dependencies>
