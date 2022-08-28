@@ -6,19 +6,18 @@
 
     <groupId>com.eliasnogueira</groupId>
     <artifactId>simulations-client</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 
     <properties>
         <java.version>11</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
 
-        <test-commons.version>1.0.2</test-commons.version>
+        <test-commons.version>1.0.3</test-commons.version>
     </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>com.eliasnogueira</groupId>
             <artifactId>test-commons</artifactId>
@@ -34,8 +33,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <release>${java.version}</release>
                 </configuration>
             </plugin>
         </plugins>
